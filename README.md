@@ -37,7 +37,7 @@ login: admin@mail.com
 password: adminpassword
 ```
 
-### Add user from user role to admin role (optional command):
+### Add user to admin role (optional command):
 ```
 php artisan app:add-user-to-admin-role {userId}
 ```
