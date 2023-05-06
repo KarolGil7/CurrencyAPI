@@ -1,0 +1,162 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/currency/get-all:
+    get:
+      summary: ''
+      operationId: getApiCurrencyGetAll
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Currency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: '2023-05-06'
+                per_page:
+                  type: integer
+                  description: 'Must be one of <code>10</code>, <code>25</code>, <code>50</code>, or <code>100</code>.'
+                  example: '25'
+                page_number:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 49
+              required:
+                - date
+                - per_page
+                - page_number
+      security: []
+  /api/currency/get:
+    get:
+      summary: ''
+      operationId: getApiCurrencyGet
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Currency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: '2023-05-06'
+                currency:
+                  type: string
+                  description: 'Must be one of <code>EUR</code>, <code>USD</code>, or <code>GBP</code>.'
+                  example: USD
+              required:
+                - date
+                - currency
+      security: []
+  /api/currency/add:
+    post:
+      summary: ''
+      operationId: postApiCurrencyAdd
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Currency
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+                  example: '2023-05-06'
+                currency:
+                  type: string
+                  description: 'Must be one of <code>EUR</code>, <code>USD</code>, or <code>GBP</code>.'
+                  example: GBP
+                amount:
+                  type: number
+                  description: 'Must be at least 0.01.'
+                  example: 87
+              required:
+                - date
+                - currency
+                - amount
+      security: []
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: anderson86@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 6EAM8zIHX`+%wa9m3N
+              required:
+                - email
+                - password
+      security: []
+tags:
+  -
+    name: Currency
+    description: ''
+  -
+    name: Endpoints
+    description: ''
